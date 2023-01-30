@@ -4,11 +4,15 @@ function minimum(arr: number[][]) {
   let result = Number.POSITIVE_INFINITY;
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
-      if (result > arr[i][j]) {
-        result = arr[i][j];
-      }
+      result = min(result, arr, i, j);
     }
   }
+  return result;
+}
 
+function min(result: number, arr: number[][], i: number, j: number) {
+  if (result > arr[i][j]) {
+    result = arr[i][j];
+  }
   return result;
 }
