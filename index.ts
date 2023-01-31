@@ -128,10 +128,12 @@ function draw() {
   let canvas = document.getElementById("GameCanvas") as HTMLCanvasElement;
   let g = canvas.getContext("2d");
 
-  g.clearRect(0, 0, canvas.width, canvas.height);
+  g.clearRect(0, 0, canvas.width, canvas.height); // 1. 변수 g의 멤버함수, 즉 객체 g 에 있는 메서드를 호출하고 있음.
 
-  drawMap(g);
-  drawPlayer(g);
+  drawMap(g); // 2. 객체 g 를 drawMap 이라는 함수의 인자로 전달하고 있음
+  drawPlayer(g); // 2. 객체 g 를 drawPlayer 이라는 함수의 인자로 전달하고 있음
+
+  // ! 3.3.1 규칙 : 1과 2는 섞어서 사용하면 안 된다. 호출 또는 전달, 한 가지만 할 것. 이라는 규칙에 위배된다.
 }
 
 function drawMap(g: CanvasRenderingContext2D) {
